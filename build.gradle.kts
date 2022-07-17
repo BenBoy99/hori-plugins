@@ -1,4 +1,5 @@
-import ProjectVersions.openosrsVersion
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import ProjectVersions.unethicaliteVersion
 
 buildscript {
     repositories {
@@ -9,6 +10,7 @@ buildscript {
 plugins {
     java
     checkstyle
+    kotlin("jvm") version "1.7.0"
 }
 
 project.extra["GithubUrl"] = "https://github.com/Blogans/hori-plugins"
@@ -40,7 +42,8 @@ subprojects {
     repositories {
         jcenter {
             content {
-                excludeGroupByRegex("com\\.openosrs.*")
+                //excludeGroupByRegex("com\\.openosrs.*")
+                excludeGroupByRegex("net\\.unethicalite.*")
             }
         }
 
@@ -49,7 +52,8 @@ subprojects {
                 mavenLocal()
             }
             filter {
-                includeGroupByRegex("com\\.openosrs.*")
+                //includeGroupByRegex("com\\.openosrs.*")
+                includeGroupByRegex("net\\.unethicalite.*")
             }
         }
     }
@@ -60,11 +64,14 @@ subprojects {
         annotationProcessor(Libraries.lombok)
         annotationProcessor(Libraries.pf4j)
 
-        compileOnly("com.openosrs:http-api:$openosrsVersion+")
-        compileOnly("com.openosrs:runelite-api:$openosrsVersion+")
-        compileOnly("com.openosrs:runelite-client:$openosrsVersion+")
-        compileOnly("com.openosrs.rs:runescape-api:$openosrsVersion+")
-
+        //compileOnly("com.openosrs:http-api:$openosrsVersion+")
+        //compileOnly("com.openosrs:runelite-api:$openosrsVersion+")
+        //compileOnly("com.openosrs:runelite-client:$openosrsVersion+")
+        //compileOnly("com.openosrs.rs:runescape-api:$openosrsVersion+")
+        compileOnly("net.unethicalite:http-api:${ProjectVersions.unethicaliteVersion}+")
+        compileOnly("net.unethicalite:runelite-api:${ProjectVersions.unethicaliteVersion}+")
+        compileOnly("net.unethicalite:runelite-client:${ProjectVersions.unethicaliteVersion}+")
+        compileOnly("net.unethicalite.rs:runescape-api:${ProjectVersions.unethicaliteVersion}+")
         compileOnly(Libraries.guice)
         compileOnly(Libraries.lombok)
         compileOnly(Libraries.pf4j)
@@ -127,4 +134,15 @@ subprojects {
 }
 repositories {
     mavenCentral()
+}
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }

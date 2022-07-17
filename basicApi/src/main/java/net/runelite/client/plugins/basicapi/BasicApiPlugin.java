@@ -95,13 +95,6 @@ public class BasicApiPlugin extends Plugin {
 	}
 
 	@Subscribe
-	public void onWallObjectChanged(WallObjectChanged wallObjectChanged)
-	{
-		objects.remove(wallObjectChanged.getPrevious());
-		objects.add(wallObjectChanged.getWallObject());
-	}
-
-	@Subscribe
 	public void onWallObjectDespawned(WallObjectDespawned wallObjectDespawned)
 	{
 		objects.remove(wallObjectDespawned.getWallObject());
@@ -111,13 +104,6 @@ public class BasicApiPlugin extends Plugin {
 	public void onGameObjectSpawned(GameObjectSpawned gameObjectSpawned)
 	{
 		objects.add(gameObjectSpawned.getGameObject());
-	}
-
-	@Subscribe
-	public void onGameObjectChanged(GameObjectChanged gameObjectChanged)
-	{
-		objects.remove(gameObjectChanged.getPrevious());
-		objects.add(gameObjectChanged.getGameObject());
 	}
 
 	@Subscribe
@@ -133,13 +119,6 @@ public class BasicApiPlugin extends Plugin {
 	}
 
 	@Subscribe
-	public void onDecorativeObjectChanged(DecorativeObjectChanged decorativeObjectChanged)
-	{
-		objects.remove(decorativeObjectChanged.getPrevious());
-		objects.add(decorativeObjectChanged.getDecorativeObject());
-	}
-
-	@Subscribe
 	public void onDecorativeObjectDespawned(DecorativeObjectDespawned decorativeObjectDespawned)
 	{
 		objects.remove(decorativeObjectDespawned.getDecorativeObject());
@@ -149,13 +128,6 @@ public class BasicApiPlugin extends Plugin {
 	public void onGroundObjectSpawned(GroundObjectSpawned groundObjectSpawned)
 	{
 		objects.add(groundObjectSpawned.getGroundObject());
-	}
-
-	@Subscribe
-	public void onGroundObjectChanged(GroundObjectChanged groundObjectChanged)
-	{
-		objects.remove(groundObjectChanged.getPrevious());
-		objects.add(groundObjectChanged.getGroundObject());
 	}
 
 	@Subscribe

@@ -24,3 +24,13 @@ hs_err*
 replay_pid*
 /PluginCreator.exe
 /OliRelighter/
+/corpHelper/corpHelper.gradle.kts
+/corpHelper/src/main/java/net.runelite.client.plugins.corpHelper/CorpHelperConfig.java
+/corpHelper/src/main/java/net.runelite.client.plugins.corpHelper/CorpHelperPlugin.java
+/corpHelper/src/main/java/net.runelite.client.plugins.corpHelper/CorpHelperStates.java
+/itemCombiner/itemCombiner.gradle.kts
+/itemCombiner/src/main/java/net/runeltie/client/plugins/itemCombiner/ItemCombinerConfig.java
+/itemCombiner/src/main/java/net/runeltie/client/plugins/itemCombiner/ItemCombinerPlugin.java
+/lootHelper/lootHelper.gradle.kts
+/lootHelper/src/main/java/net/runeltie/client/plugins/lootHelper/LootHelperConfig.java
+/lootHelper/src/main/java/net/runeltie/client/plugins/lootHelper/LootHelperPlugin.java
